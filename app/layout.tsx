@@ -1,18 +1,27 @@
-import './globals.css'
-
+import ProductContextProvider from "context/ProductContextProvider";
+import Link from "next/link";
+import "styles/globals.css"; 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html>
       <head />
-      <body>{children}</body>
+      <body>
+      <header className="bg-gradient-to-b from-sky-200 to-sky-50 p-2">
+          <ul className="flex gap-10">
+            <li className="text-sky-600">
+              <Link href={"/"}>Home</Link>
+            </li>
+            <li className="text-sky-600">
+              <Link href={"/addProduct"}>Add Product</Link>
+            </li>
+          </ul>
+        </header>
+        <ProductContextProvider>{children}</ProductContextProvider>
+      </body>
     </html>
-  )
+  );
 }
