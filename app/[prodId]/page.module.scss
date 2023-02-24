@@ -1,0 +1,38 @@
+.page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 50px;
+    border: solid 2px grey;
+    padding: 10px;
+    width: auto;
+    margin: 80px;
+    border-radius: 10px;
+    .elm {
+       display: flex;
+       flex-direction: column;
+       margin-left: 50px;
+    }
+  
+    h1 {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+  
+    h2 {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+  
+    h3 {
+      font-size: 1em;
+      margin-top: 5px;
+    }
+  
+    img {
+      width: 750px;
+      height: 500px;
+    }
+  }

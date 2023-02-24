@@ -42,7 +42,7 @@ const getVariant = (variant?: VariantType) => {
     square?: boolean;
     paddingLess?: boolean;
   }
-  export const Button = ({
+  export const ButtonPro = ({
     className,
     children,
     variant,

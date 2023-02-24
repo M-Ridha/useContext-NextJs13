@@ -2,7 +2,7 @@
 
 import { useProductContext } from '@/context/ProductContext';
 import React, { useState } from 'react'
-import { Button } from "../../components/elements/Button";
+import { ButtonPro } from "../../components/elements/Button";
 import { TextBox } from '../../components/elements/TextBox'
 import Swal from 'sweetalert2'
 import Router from 'next/router';
@@ -15,13 +15,20 @@ const Add = () => {
 
     const [name, setName] = useState<string>("")
     const [price, setPrice] = useState<number>(0)
+    const [description, setDescription] = useState<string>("")
+    const [image, setImage] = useState<string>("")
+    
+    
+    
     {/*@ts-ignore*/}
     const {addProduct} = useProductContext()
 
     const add =  () => {
-      addProduct({name , price})
+      addProduct({name , price , description , image})
       setPrice(0);
       setName('')
+      setDescription('')
+      setImage('')
       setTimeout(()=>{
         Swal.fire({
             position: 'top-end',
@@ -50,9 +57,19 @@ const Add = () => {
                 onChange={(e) => setPrice(parseInt(e.target.value))}
                 value={price}
             />
-            <Button className="col-span-2 w-52 place-self-center" onClick={add}>
+            <TextBox
+                labelText="desription"
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+            />
+            <TextBox
+                labelText="image"
+                onChange={(e) => setImage(e.target.value)}
+                value={image}
+            />
+            <ButtonPro className="col-span-2 w-52 place-self-center" onClick={add}>
                 Add
-            </Button>
+            </ButtonPro>
         </div>
     )
 }

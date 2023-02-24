@@ -4,6 +4,10 @@
 import { Product } from '@/interfaces'
 import React, { ReactNode, useState } from 'react'
 import {ProductContext} from './ProductContext'
+import { v4 as uuidv4 } from 'uuid'
+
+
+
 interface IProps {
     children : ReactNode
 }
@@ -13,12 +17,12 @@ interface IProps {
 const ProductContextProvider = ({children} : IProps) => {
   
   const [products , setProducts] = useState<Product[]>([
-    {name : "prodTest01" , price : 200 , id : 0} ,
-    {name : "prodTest02" , price : 250 , id : 1} ,
+    {name : "prodTest01" , price : 200 , id : "0" , description:"description 0" , image : "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg" },
+    {name : "prodTest02" , price : 250 , id : "1" , description:"description 1" , image : "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg"} 
   ])
   
   const addProduct = (product : Product) => {
-    product.id = products.length;
+    product.id = uuidv4();
     setProducts([...products , product])
   }
   {/*@ts-ignore*/}
